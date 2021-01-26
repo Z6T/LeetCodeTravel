@@ -2,8 +2,7 @@
 
 
 
-// Promise.all 异常/出错一般情况下，all里传promise数组，但是只要有一个
-// 出错，就会进入到catch里，不会捕获到正常数据的
+// Promise.all 异常/出错一般情况下，all里传promise数组，但是只要有一个出错，就会进入到catch里，不会捕获到正常数据的
 
 
 function P(error = false) {
