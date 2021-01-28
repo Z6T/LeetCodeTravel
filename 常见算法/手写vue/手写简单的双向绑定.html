@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<div id="app">
+    <div>
+        <input v-model="num"/>
+        <p v-bind="num"></p>
+    </div>
+    <div>
+        <button @click="addNum">
+            加一次
+        </button>
+    </div>
+</div>
+    <script>
+        let protoString = Object.prototype.toString;
+        function isArray(obj) {
+            return protoString.call(obj) = '[object Array]'
+        }
+
+
+        class Watcher{
+            constructor(node,cb,key ){
+                this.node = node;
+                this.cb = cb;
+                this.key = key;
+            }
+
+            update(){ // 更新操作
+                this.cb(this.node)
+            }
+        }
+
+
+
+        class Vue{
+            constructor(el, data, methods, render){
+                this.$el = document.querySelector(el)
+                this.$deps = {}
+                this.$data = this._obs(data)
+                this.$methods = methods
+                this._compileHtml(this.$ele)
+            }
+
+            // 数据劫持
+            _obs(data){
+                let that = this
+                return new Proxy(data,{
+                    get(target,key){
+                        return Reflect.get(target,key)
+                    },
+                    set(newVal){
+                        let val = Reflect.set(target,key,newVal)
+                        that.$deps[key].forEach(item=>item.update()) /// 在set的时候进行更新操作
+                    }
+                })
+            }
+
+            // 订阅
+
+            _pushWatcher(watcher){
+                if(!this.$deps[watcher.key]){
+                    this.$deps[watcher.key] = []
+                }
+                this.$deps[watcher.key].push(watcher)
+            }
+
+
+            // 解析html
+            _compileHtml(ele){
+                const nodes = ele.children
+                let data = this.$data;
+                for(let node of nodes){
+                    let attrs = Array.from(node.attributes)
+                    // 判断是否是input
+
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>
+
+
+https://zhongmeizhi.github.io/fed-note/resource-analysis/vue2.html#diff%E7%AE%97%E6%B3%95
