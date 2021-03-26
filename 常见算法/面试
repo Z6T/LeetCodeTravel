@@ -1,0 +1,28 @@
+flex布局  水平居中
+内容不足时底部栏在屏幕最底部，如果内容超过一屏时，内容被顶到下边
+
+1  react hooks了解吗？简单说一下
+redux的流程
+Vue 组件间通信有哪几种方式？
+手写promiseAll
+接上文。 promise.all 执行的时候。所有的异步调用全部成功才会返回数据。进入.then对吧？请求了3个api。失败了一个。我还是想要成功的两个的数据。怎么办？
+使用reduce实现一个方法，fn(onj,'a.b.c')
+vue双向绑定的原理  Dep.target
+proxy 和Object.defiineproperty   
+fn(obj,'a.b.c.d')
+const obj ={
+ a:{
+  b:{
+   c:66
+  }
+ }
+}
+
+浏览器的缓存机制
+Vue 组件间通信有哪几种方式？
+怎么设计一个Form组件   https://www.jianshu.com/p/7ec29ed18d23?utm_campaign=hugo
+localstorage实现过期功能
+mutation和actioin的区别
+css阻塞Dom解析吗?渲染呢?
+js执行阻塞dom解析和渲染吗?
+git revert 用过吗?别的分支重新合并后无法合并怎么解决
